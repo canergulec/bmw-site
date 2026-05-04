@@ -1,249 +1,194 @@
+```html id="fullsystem1"
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMW Tutkusu | Saf Sürüş Keyfi</title>
-    <style>
-        /* CSS Tasarımı */
-        :root {
-            --primary-color: #0066b1; /* BMW Mavisi */
-            --bg-color: #121212;
-            --text-color: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMW Showroom Pro</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0b0b0b;
+    color: white;
+}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    background: black;
+}
 
-        /* Header / Navbar */
-        header {
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
+/* Controls */
+.controls {
+    text-align: center;
+    padding: 15px;
+}
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--text-color);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
+input, select {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
 
-        .logo span {
-            color: var(--primary-color);
-        }
+/* Cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+.card {
+    width: 260px;
+    margin: 10px;
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
 
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
 
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
+.card h3 {
+    text-align: center;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1555626906-fcf10d6851b4?q=80&w=1920&auto=format&fit=crop') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.5s;
-        }
+.modal-content {
+    background: #222;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+}
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.8s;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            opacity: 0;
-            animation: fadeUp 1s forwards 1.1s;
-        }
-
-        .btn:hover {
-            background-color: #00508c;
-            transform: scale(1.05);
-        }
-
-        /* Models Section */
-        .models {
-            padding: 5rem 5%;
-            text-align: center;
-        }
-
-        .models h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #0a0a0a;
-            margin-top: 2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            nav ul { display: none; /* Mobilde menüyü gizle (basitlik için) */ }
-        }
-    </style>
+/* Admin */
+.admin {
+    background: #111;
+    padding: 15px;
+    text-align: center;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <a href="#" class="logo">BMW<span>M</span></a>
-        <nav>
-            <ul>
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#models">Modeller</a></li>
-                <li><a href="#contact">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>BMW Showroom PRO</header>
 
-    <section class="hero" id="home">
-        <h1>Saf Sürüş Keyfi</h1>
-        <p>Mühendislik harikası, güç ve zarafetin kusursuz birleşimi. Yollara hükmetmeye hazır mısın?</p>
-        <a href="#models" class="btn">Modelleri Keşfet</a>
-    </section>
+<div class="controls">
+    <input type="text" id="search" placeholder="Araç ara...">
+    <select id="filter">
+        <option value="all">Tümü</option>
+        <option value="Sedan">Sedan</option>
+        <option value="SUV">SUV</option>
+    </select>
+</div>
 
-    <section class="models" id="models">
-        <h2>Öne Çıkan Modeller</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=800&auto=format&fit=crop" alt="BMW M3">
-                <div class="card-content">
-                    <h3>BMW M3 Competition</h3>
-                    <p>Pist performansı günlük kullanımla buluşuyor. 510 beygir gücündeki bu canavarla tanışın.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?q=80&w=800&auto=format&fit=crop" alt="BMW i8">
-                <div class="card-content">
-                    <h3>BMW i8</h3>
-                    <p>Geleceğin spor otomobili. Aerodinamik tasarım ve yenilikçi hibrit teknolojisi.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=800&auto=format&fit=crop" alt="BMW M5">
-                <div class="card-content">
-                    <h3>BMW M5 CS</h3>
-                    <p>Lüks bir sedanın içinde yatan safkan bir yarış aracı. Gücün zirvesi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="container" id="carList"></div>
 
-    <footer id="contact">
-        <p>&copy; 2026 BMW Tutkusu Projesi. GitHub Pages üzerinde barındırılmaktadır.</p>
-    </footer>
+<!-- ADMIN PANEL -->
+<div class="admin">
+    <h3>Araç Ekle</h3>
+    <input id="name" placeholder="Araç adı">
+    <input id="category" placeholder="Kategori (Sedan/SUV)">
+    <input id="img" placeholder="Görsel URL">
+    <input id="specs" placeholder="Teknik özellikler">
+    <button onclick="addCar()">Ekle</button>
+</div>
 
-    <script>
-        // Smooth Scrolling için basit JavaScript
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2 id="mTitle"></h2>
+        <img id="mImg" style="width:100%">
+        <p id="mSpecs"></p>
+        <button onclick="closeModal()">Kapat</button>
+    </div>
+</div>
+
+<script>
+let cars = JSON.parse(localStorage.getItem("cars")) || [
+    {
+        name: "BMW 3 Serisi",
+        category: "Sedan",
+        img: "https://www.bmw.com/content/dam/bmw/common/all-models/3-series/sedan/2022/highlights/bmw-3-series.jpg",
+        specs: "184 HP - 2.0L Turbo"
+    },
+    {
+        name: "BMW X5",
+        category: "SUV",
+        img: "https://www.bmw.com/content/dam/bmw/common/all-models/x-series/x5.jpg",
+        specs: "340 HP - 3.0L"
+    }
+];
+
+function save() {
+    localStorage.setItem("cars", JSON.stringify(cars));
+}
+
+function render() {
+    let list = document.getElementById("carList");
+    list.innerHTML = "";
+
+    let search = document.getElementById("search").value.toLowerCase();
+    let filter = document.getElementById("filter").value;
+
+    cars
+    .filter(c => c.name.toLowerCase().includes(search))
+    .filter(c => filter === "all" || c.category === filter)
+    .forEach(c => {
+        list.innerHTML += `
+        <div class="card" onclick="openModal('${c.name}','${c.img}','${c.specs}')">
+            <img src="${c.img}">
+            <h3>${c.name}</h3>
+        </div>`;
+    });
+}
+
+function addCar() {
+    let car = {
+        name: document.getElementById("name").value,
+        category: document.getElementById("category").value,
+        img: document.getElementById("img").value,
+        specs: document.getElementById("specs").value
+    };
+    cars.push(car);
+    save();
+    render();
+}
+
+function openModal(title, img, specs) {
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("mTitle").innerText = title;
+    document.getElementById("mImg").src = img;
+    document.getElementById("mSpecs").innerText = specs;
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+document.getElementById("search").oninput = render;
+document.getElementById("filter").onchange = render;
+
+render();
+</script>
+
 </body>
 </html>
+```
