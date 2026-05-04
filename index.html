@@ -38,16 +38,16 @@
             z-index: 100;
         }
 
-        /* YENİ LOGO TASARIMI BURADA */
+        /* Logo Tasarımı */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px; /* Logo ve yazı arasındaki boşluk */
+            gap: 10px; 
             text-decoration: none;
         }
 
         .nav-logo {
-            height: 40px; /* Logonun yüksekliği */
+            height: 40px; 
             width: auto;
         }
 
@@ -79,13 +79,11 @@
             color: var(--primary-color);
         }
 
-        /* Hero Section */
+        /* Hero Section (Arka plan buraya eklendi) */
         .hero {
-           .hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('arkaplan.jpg') center/cover;
-    display: flex;
-    flex-direction: column;
+            height: 100vh;
+            /* DİKKAT: Arka plan resmi 'arkaplan.jpg' olarak ayarlandı */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('arkaplan.jpg') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -317,7 +315,6 @@
 <body>
 
     <header>
-        <!-- YENİ LOGO HTML KISMI -->
         <a href="#" class="logo-container">
             <img src="logo.png" alt="BMW Logo" class="nav-logo">
             <span class="logo-text">BMW<span>M</span></span>
@@ -340,7 +337,6 @@
     <section class="models" id="models">
         <h2>Öne Çıkan Modeller</h2>
         <div class="grid">
-            <!-- BMW M3 -->
             <div class="card">
                 <img src="m3.jpg" alt="BMW M3">
                 <div class="card-content">
@@ -352,7 +348,6 @@
                 </div>
             </div>
             
-            <!-- BMW i8 -->
             <div class="card">
                 <img src="i8.jpg" alt="BMW i8">
                 <div class="card-content">
@@ -364,7 +359,6 @@
                 </div>
             </div>
 
-            <!-- BMW M5 -->
             <div class="card">
                 <img src="m5.jpg" alt="BMW M5">
                 <div class="card-content">
@@ -381,8 +375,6 @@
     <footer id="contact">
         <p>&copy; 2026 BMW Tutkusu Projesi. GitHub Pages üzerinde barındırılmaktadır.</p>
     </footer>
-
-    <!-- MODALLAR (AÇILIR PENCERELER) -->
 
     <!-- M3 Modal -->
     <div id="m3-modal" class="modal">
@@ -445,7 +437,6 @@
     </div>
 
     <script>
-        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -455,7 +446,6 @@
             });
         });
 
-        // --- Modal JavaScript Mantığı ---
         const m3Modal = document.getElementById("m3-modal");
         const i8Modal = document.getElementById("i8-modal");
         const m5Modal = document.getElementById("m5-modal");
