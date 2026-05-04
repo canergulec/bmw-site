@@ -38,15 +38,27 @@
             z-index: 100;
         }
 
-        .logo {
+        /* YENİ LOGO TASARIMI BURADA */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Logo ve yazı arasındaki boşluk */
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            height: 40px; /* Logonun yüksekliği */
+            width: auto;
+        }
+
+        .logo-text {
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--text-color);
-            text-decoration: none;
             letter-spacing: 2px;
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--primary-color);
         }
 
@@ -70,7 +82,6 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            /* Ana arka plan için kendi resmini eklemek istersen url() içini değiştirebilirsin (örnek: url('arkaplan.jpg')) */
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1555626906-fcf10d6851b4?q=80&w=1920&auto=format&fit=crop') center/cover;
             display: flex;
             flex-direction: column;
@@ -299,34 +310,15 @@
             .modal-body img { width: 100%; }
         }
     </style>
-  
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Logo ve yazı arasındaki boşluk */
-    text-decoration: none;
-}
-
-.nav-logo {
-    height: 40px; /* Logonun yüksekliğini buradan ayarlayabilirsin */
-    width: auto;
-}
-
-.logo-text {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--text-color);
-    letter-spacing: 2px;
-}
-
-.logo-text span {
-    color: var(--primary-color);
-}
 </head>
 <body>
 
-      <header>
-        <a href="#" class="logo">BMW<span>M</span></a>
+    <header>
+        <!-- YENİ LOGO HTML KISMI -->
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="BMW Logo" class="nav-logo">
+            <span class="logo-text">BMW<span>M</span></span>
+        </a>
         <nav>
             <ul>
                 <li><a href="#home">Ana Sayfa</a></li>
@@ -461,37 +453,27 @@
         });
 
         // --- Modal JavaScript Mantığı ---
-
-        // 1. Modalları Seç
         const m3Modal = document.getElementById("m3-modal");
         const i8Modal = document.getElementById("i8-modal");
         const m5Modal = document.getElementById("m5-modal");
 
-        // 2. Açma Butonlarını Seç
         const btnM3 = document.getElementById("open-m3-modal");
         const btnI8 = document.getElementById("open-i8-modal");
         const btnM5 = document.getElementById("open-m5-modal");
 
-        // 3. Kapatma Butonlarını (X) Seç
         const closeM3 = document.getElementById("close-m3-modal");
         const closeI8 = document.getElementById("close-i8-modal");
         const closeM5 = document.getElementById("close-m5-modal");
 
-        // --- Tıklama İşlemleri ---
-
-        // M3 İçin
         btnM3.onclick = function() { m3Modal.classList.add("show"); }
         closeM3.onclick = function() { m3Modal.classList.remove("show"); }
 
-        // i8 İçin
         btnI8.onclick = function() { i8Modal.classList.add("show"); }
         closeI8.onclick = function() { i8Modal.classList.remove("show"); }
 
-        // M5 İçin
         btnM5.onclick = function() { m5Modal.classList.add("show"); }
         closeM5.onclick = function() { m5Modal.classList.remove("show"); }
 
-        // Herhangi bir modalın dışındaki siyah alana tıklanırsa açık olanı kapat
         window.onclick = function(event) {
             if (event.target == m3Modal) { m3Modal.classList.remove("show"); }
             if (event.target == i8Modal) { i8Modal.classList.remove("show"); }
