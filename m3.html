@@ -13,8 +13,13 @@
         
         /* Navbar */
         header { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .logo-text { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; letter-spacing: 1px; }
+        
+        /* LOGO KISMI İÇİN EKLENEN YENİ CSS */
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo { height: 40px; width: auto; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: white; letter-spacing: 1px; }
         .logo-text span { color: var(--primary-color); }
+        
         .back-link { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s; }
         .back-link:hover { color: var(--primary-color); }
 
@@ -22,7 +27,7 @@
         .reveal { opacity: 0; transform: translateY(80px); transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Hero Section (Açılış) - YENİ ARKA PLAN BURADA */
+        /* Hero Section (Açılış) */
         .hero-section { 
             height: 100vh; 
             display: flex; 
@@ -32,7 +37,6 @@
             text-align: center; 
             padding: 0 20px; 
             position: relative; 
-            /* Yarı saydam siyah geçiş ve m3.d1.jpg arka planı */
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('m3.d1.jpg') center/cover no-repeat;
         }
         .hero-section h1 { font-size: 6rem; font-weight: 800; letter-spacing: -3px; margin-bottom: 10px; background: linear-gradient(to right, #ffffff, #888888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -67,8 +71,12 @@
 </head>
 <body>
 
+    <!-- GÜNCELLENEN HEADER KISMI -->
     <header>
-        <a href="index.html" class="logo-text">BMW<span>M</span></a>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="BMW Logo" class="nav-logo">
+            <span class="logo-text">BMW<span>M</span></span>
+        </a>
         <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Ana Sayfaya Dön</a>
     </header>
 
@@ -78,7 +86,7 @@
         <h2>Efsanevi miras. Modern agresiflik.</h2>
     </section>
 
-    <!-- Bölüm 1: Arka Koltuklar (m3.f1.jpg) -->
+    <!-- Bölüm 1: Arka Koltuklar -->
     <section class="immersive-section">
         <div class="immersive-text reveal">
             <h3>Dinamizm Her Yerde.</h3>
@@ -89,7 +97,7 @@
         </div>
     </section>
 
-    <!-- Bölüm 2: Ön M Koltuklar (m3.f2.jpg) -->
+    <!-- Bölüm 2: Ön M Koltuklar -->
     <section class="immersive-section">
         <div class="immersive-text reveal">
             <h3>Piste Hazır Konfor.</h3>
@@ -100,7 +108,7 @@
         </div>
     </section>
 
-    <!-- Bölüm 3: Orta Konsol ve Multimedya (m3.f3.jpg) -->
+    <!-- Bölüm 3: Orta Konsol ve Multimedya -->
     <section class="immersive-section">
         <div class="immersive-text reveal">
             <h3>Akıllı Kontrol Merkezi.</h3>
@@ -111,7 +119,7 @@
         </div>
     </section>
 
-    <!-- Bölüm 4: Dijital Gösterge Paneli (m3.f4.jpg) -->
+    <!-- Bölüm 4: Dijital Gösterge Paneli -->
     <section class="immersive-section">
         <div class="immersive-text reveal">
             <h3>Sadece Gerekli Olanlar.</h3>
@@ -122,7 +130,7 @@
         </div>
     </section>
 
-    <!-- Bölüm 5: Direksiyon M Butonu (m3.f5.jpg) -->
+    <!-- Bölüm 5: Direksiyon M Butonu -->
     <section class="immersive-section">
         <div class="immersive-text reveal">
             <h3>Karakterinizi Seçin.</h3>
@@ -133,7 +141,7 @@
         </div>
     </section>
 
-    <!-- Bölüm 6: Tam Kokpit (m3.f6.jpg) -->
+    <!-- Bölüm 6: Tam Kokpit -->
     <section class="immersive-section">
         <div class="immersive-text reveal">
             <h3>Karbon Fiber Sanatı.</h3>
@@ -144,7 +152,7 @@
         </div>
     </section>
 
-    <!-- Bölüm 7: Motor (m3.f7.jpg) -->
+    <!-- Bölüm 7: Motor -->
     <section class="immersive-section">
         <div class="immersive-text reveal">
             <h3>Kalbinde Bir Efsane Yatar.</h3>
