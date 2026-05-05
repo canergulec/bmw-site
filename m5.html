@@ -6,14 +6,20 @@
     <title>BMW M5 CS | Lüks ve Yarış Bir Arada</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-color: #0066b1; --bg-color: #000000; --text-color: #ffffff; }
+        /* Apple Tarzı Renkler ve Değişkenler */
+        :root { --primary-color: #0066cc; --bg-color: #000000; --text-color: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; overflow-x: hidden; }
         
         /* Navbar */
         header { background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo-text { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; letter-spacing: 1px;}
+        
+        /* LOGO KISMI İÇİN EKLENEN YENİ CSS */
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo { height: 40px; width: auto; }
+        .logo-text { font-size: 1.5rem; font-weight: bold; color: white; letter-spacing: 1px;}
         .logo-text span { color: var(--primary-color); }
+        
         .back-link { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s; }
         .back-link:hover { color: var(--primary-color); }
 
@@ -28,8 +34,19 @@
             transform: translateY(0);
         }
 
-        /* Hero Section (Açılış) */
-        .hero-section { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; position: relative; }
+        /* Hero Section (Açılış) - YENİ ARKA PLAN BURADA */
+        .hero-section { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 0 20px; 
+            position: relative; 
+            /* Yarı saydam siyah geçiş ve m5.d1.jpg arka planı */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('m5.d1.jpg') center/cover no-repeat;
+        }
         .hero-section h1 { font-size: 6rem; font-weight: 800; letter-spacing: -3px; margin-bottom: 10px; background: linear-gradient(to right, #ffffff, #888888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-section h2 { font-size: 2.5rem; font-weight: 400; color: #a1a1a6; }
         
@@ -42,7 +59,7 @@
         /* Büyük İmaj Stilleri */
         .immersive-img-container { width: 100%; max-width: 1400px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
         .immersive-img-container img { width: 100%; height: auto; display: block; transform: scale(1.02); transition: transform 0.5s ease; }
-        .immersive-img-container:hover img { transform: scale(1); } /* Hafif bir uzaklaşma efekti */
+        .immersive-img-container:hover img { transform: scale(1); }
 
         /* Teknik Özellikler Bölümü */
         .specs-section { background-color: #0a0a0a; padding: 8rem 10%; border-top: 1px solid #222; }
@@ -62,12 +79,16 @@
 </head>
 <body>
 
+    <!-- GÜNCELLENEN HEADER KISMI -->
     <header>
-        <a href="index.html" class="logo-text">BMW<span>M</span></a>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="BMW Logo" class="nav-logo">
+            <span class="logo-text">BMW<span>M</span></span>
+        </a>
         <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Ana Sayfaya Dön</a>
     </header>
 
-    <!-- Açılış Metni (Görselsiz, Sadece Yazı) -->
+    <!-- Açılış Metni ve Yeni Arka Plan -->
     <section class="hero-section reveal">
         <h1>M5 CS</h1>
         <h2>Tavizsiz güç. Kusursuz kontrol.</h2>
@@ -184,14 +205,12 @@
         </div>
     </section>
 
-    <!-- Scroll Animasyonunu Tetikleyen Javascript Kodları -->
     <script>
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                // Eleman ekranın altından 100px yukarı girdiğinde animasyon başlar
                 var elementVisible = 100; 
 
                 if (elementTop < windowHeight - elementVisible) {
@@ -199,10 +218,7 @@
                 }
             }
         }
-
-        // Sayfa yüklendiğinde ve kaydırıldığında kontrol et
         window.addEventListener("scroll", reveal);
-        // İlk açılıştaki yazının hemen belirmesi için
         window.onload = reveal; 
     </script>
 </body>
