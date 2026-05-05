@@ -10,27 +10,39 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
         
+        /* Navbar */
         header { background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 100; border-bottom: 1px solid #333; }
         .logo-text { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; letter-spacing: 1px;}
         .logo-text span { color: var(--primary-color); }
         .back-link { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s; }
         .back-link:hover { color: var(--primary-color); }
 
+        /* Apple Style Hero Presentation */
         .showcase { position: relative; height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding-top: 15vh; text-align: center; overflow: hidden; }
         .showcase-text { z-index: 2; position: relative; }
         .showcase h1 { font-size: 5rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; background: linear-gradient(to right, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .showcase h2 { font-size: 2rem; font-weight: 400; color: #a1a1a6; margin-bottom: 20px; }
         
+        /* 1. Fotoğraf (Ana Resim) */
         .showcase img { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80%; max-width: 1200px; z-index: 1; object-fit: contain; }
 
-        .specs-section { background-color: #111111; padding: 5rem 10%; }
+        /* YENİ: Şık Galeri Bölümü */
+        .gallery-section { background-color: #0a0a0a; padding: 5rem 5%; border-top: 1px solid #222; }
+        .gallery-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: white; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .gallery-item { overflow: hidden; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .gallery-item img:hover { transform: scale(1.05); }
+
+        /* Teknik Özellikler Bölümü */
+        .specs-section { background-color: #111111; padding: 5rem 10%; border-top: 1px solid #222; }
         .specs-title { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; color: white; }
         .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; border-top: 1px solid #333; padding-top: 3rem; }
         .spec-item { border-left: 1px solid #333; padding-left: 20px; }
         .spec-item h4 { color: #888; font-size: 1rem; font-weight: normal; margin-bottom: 5px; }
         .spec-item p { font-size: 1.8rem; font-weight: bold; color: white; }
 
-        @media (max-width: 768px) { .showcase h1 { font-size: 3rem; } .showcase img { width: 100%; bottom: 10%; } }
+        @media (max-width: 768px) { .showcase h1 { font-size: 3rem; } .showcase img { width: 100%; bottom: 10%; } .gallery-item img { height: 250px; } }
     </style>
 </head>
 <body>
@@ -40,13 +52,27 @@
         <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Ana Sayfaya Dön</a>
     </header>
 
+    <!-- ANA VİTRİN: m5_large1.jpg burada kullanılacak -->
     <section class="showcase">
         <div class="showcase-text">
             <h1>M5 CS</h1>
             <h2>V8 Mükemmelliği.</h2>
         </div>
-        <!-- M5 FOTOĞRAFINI BURAYA EKLEYECEKSİN -->
-        <img src="m5_large.jpg" alt="BMW M5 Büyük Fotoğraf">
+        <img src="m5_large1.jpg" alt="BMW M5 Ana Fotoğraf">
+    </section>
+
+    <!-- GALERİ: Diğer 7 fotoğraf burada listelenecek -->
+    <section class="gallery-section">
+        <h3 class="gallery-title">Tasarım ve İç Dizayn</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="m5_large2.jpg" alt="BMW M5 Detay 2"></div>
+            <div class="gallery-item"><img src="m5_large3.jpg" alt="BMW M5 Detay 3"></div>
+            <div class="gallery-item"><img src="m5_large4.jpg" alt="BMW M5 Detay 4"></div>
+            <div class="gallery-item"><img src="m5_large5.jpg" alt="BMW M5 Detay 5"></div>
+            <div class="gallery-item"><img src="m5_large6.jpg" alt="BMW M5 Detay 6"></div>
+            <div class="gallery-item"><img src="m5_large7.jpg" alt="BMW M5 Detay 7"></div>
+            <div class="gallery-item"><img src="m5_large8.jpg" alt="BMW M5 Detay 8"></div>
+        </div>
     </section>
 
     <section class="specs-section">
