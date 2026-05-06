@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geleceğin Mirası: BMW i8 - BMW Tutkusu Blog</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --primary-color: #0066cc; --bg-color: #000000; --card-bg: #1c1c1e; --text-color: #f5f5f7; --text-muted: #86868b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; overflow-x: hidden; }
+
+        .main-navbar { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo { height: 40px; width: auto; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: white; letter-spacing: 1px; }
+        .logo-text span { color: var(--primary-color); }
+        .back-link { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--primary-color); }
+
+        .article-header { padding: 150px 20px 50px; max-width: 800px; margin: 0 auto; text-align: left; }
+        .article-category { color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; display: block; margin-bottom: 15px; }
+        .article-title { font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 25px; color: white; }
+        .article-meta { color: var(--text-muted); font-size: 1.1rem; border-top: 1px solid #333; padding-top: 20px; display: flex; gap: 20px; }
+
+        .article-hero-image { width: 100%; max-width: 1000px; margin: 0 auto 50px; display: block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        .article-content { max-width: 750px; margin: 0 auto 80px; font-size: 1.25rem; color: #d2d2d7; }
+        .article-content p { margin-bottom: 25px; }
+        .article-content h3 { color: white; font-size: 2rem; margin: 40px 0 20px; font-weight: 700; letter-spacing: -0.5px; }
+
+        /* Yorum Bölümü Kapsayıcısı */
+        .comments-section { max-width: 750px; margin: 0 auto 100px; padding-top: 50px; border-top: 1px solid #333; }
+        .comments-section h3 { font-size: 2rem; color: white; margin-bottom: 30px; font-weight: 700; }
+
+        @media (max-width: 768px) { .article-title { font-size: 2.5rem; } .article-content { font-size: 1.1rem; padding: 0 20px; } .comments-section { padding: 50px 20px 0; } }
+    </style>
+</head>
+<body>
+
+    <header class="main-navbar">
+        <a href="index.html" class="logo-container">
+            <!-- logo.png dosyasının GitHub'da aynı dizinde olduğundan emin ol -->
+            <img src="logo.png" alt="BMW Logo" class="nav-logo">
+            <span class="logo-text">BMW<span>M</span></span>
+        </a>
+        <a href="index.html#blog" class="back-link"><i class="fas fa-chevron-left"></i> Blog'a Dön</a>
+    </header>
+
+    <main>
+        <div class="article-header">
+            <span class="article-category">Teknoloji • Aerodinamik</span>
+            <h1 class="article-title">Geleceğin Mirası: BMW i8'in Aerodinamik Sırları</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar-alt"></i> 28 Nisan 2026</span>
+                <span><i class="far fa-user"></i> Yazar: BMW Tutkusu Editörü</span>
+            </div>
+        </div>
+
+        <!-- Görselin adını daha önce yüklediğin i8.jpg olarak ayarladım -->
+        <img src="i8.jpg" alt="BMW i8 Rüzgar Tüneli Testi" class="article-hero-image">
+
+        <article class="article-content">
+            <p>BMW i8, yollara ilk çıktığında sadece çarpıcı tasarıma sahip bir spor otomobil değildi; aynı zamanda otomotiv dünyası için tekerlekli bir laboratuvardı. Performans ve sürdürülebilirliğin aynı potada eritilebileceğini kanıtlayan bu modelin kalbinde, motor gücünden ziyade ileri düzey aerodinamik ve materyal bilimi yatıyordu.</p>
+            
+            <p>Karbon fiber yolcu hücresi (CFRP) kullanımı, şasi ağırlığını dramatik ölçüde düşürerek batarya paketlerinin getirdiği ekstra kütleyi sıfırladı. Bu kompozit yapı, çelikten daha güçlü ve alüminyumdan çok daha hafif olmasıyla, yüksek hızlı virajlarda burulma direncini maksimize eden kritik bir mühendislik hamlesiydi.</p>
+
+            <h3>Rüzgar Tünelinde Heykeltıraşlık: Cd 0.26</h3>
+            <p>Bir aracın elektrik menzilini artırmanın en etkili yolu bataryayı büyütmek değil, havayı yenmektir. i8'in tasarımında kullanılan "su damlası" formu ve akışkan hatlar, aracın rüzgar direncini (Cd) 0.26 gibi muazzam bir değere düşürdü. Ön tampondaki hava perdeleri (Air Curtains), tekerleklerin etrafındaki türbülansı en aza indirirken, arka kısımdaki kanallı yapı havanın aracı pürüzsüzce terk etmesini sağlıyor.</p>
+
+            <p>Sonuç olarak, i8'in aerodinamik verimliliği sadece yolda daha iyi süzülmesini sağlamakla kalmadı; bataryanın üzerindeki yükü azaltarak enerji tüketim eğrisini optimize etti. Yazılım tabanlı hibrit güç yönetimi ile birleşen bu fiziksel kusursuzluk, BMW'nin gelecekteki tamamen elektrikli (BEV) M serisi araçları için paha biçilmez bir veri seti oluşturdu.</p>
+        </article>
+
+        <!-- GISCUS YORUM SİSTEMİ -->
+        <section class="comments-section">
+            <h3>Yorumlar</h3>
+            <script src="https://giscus.app/client.js"
+                data-repo="canergulec/bmw-site"
+                data-repo-id="R_kgDOSUPAgg"
+                data-category="General"
+                data-category-id="DIC_kwDOSUPAgg4Cig69"
+                data-mapping="number"
+                data-term="2" 
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="dark"
+                data-lang="tr"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </section>
+
+    </main>
+
+</body>
+</html>
