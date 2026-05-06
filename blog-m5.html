@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mühendislik Bakış Açısıyla M5 CS - BMW Tutkusu Blog</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --primary-color: #0066cc; --bg-color: #000000; --card-bg: #1c1c1e; --text-color: #f5f5f7; --text-muted: #86868b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; overflow-x: hidden; }
+
+        header { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo { height: 40px; width: auto; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: white; letter-spacing: 1px; }
+        .logo-text span { color: var(--primary-color); }
+        .back-link { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--primary-color); }
+
+        /* Blog Makale Başlığı */
+        .article-header { padding: 150px 20px 50px; max-width: 800px; margin: 0 auto; text-align: left; }
+        .article-category { color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; display: block; margin-bottom: 15px; }
+        .article-title { font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 25px; color: white; }
+        .article-meta { color: var(--text-muted); font-size: 1.1rem; border-top: 1px solid #333; padding-top: 20px; display: flex; gap: 20px; }
+
+        /* Ana Görsel */
+        .article-hero-image { width: 100%; max-width: 1000px; margin: 0 auto 50px; display: block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        /* Makale İçeriği */
+        .article-content { max-width: 750px; margin: 0 auto 80px; font-size: 1.25rem; color: #d2d2d7; }
+        .article-content p { margin-bottom: 25px; }
+        .article-content h3 { color: white; font-size: 2rem; margin: 40px 0 20px; font-weight: 700; letter-spacing: -0.5px; }
+
+        /* Yorumlar Bölümü */
+        .comments-section { max-width: 750px; margin: 0 auto 100px; padding-top: 50px; border-top: 1px solid #333; }
+        .comments-section h3 { font-size: 2rem; color: white; margin-bottom: 30px; font-weight: 700; }
+        
+        /* Yorum Formu */
+        .comment-form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 50px; }
+        .comment-form input, .comment-form textarea { width: 100%; background-color: var(--card-bg); border: 1px solid #333; border-radius: 12px; padding: 15px; color: white; font-size: 1rem; transition: border-color 0.3s; }
+        .comment-form input:focus, .comment-form textarea:focus { outline: none; border-color: var(--primary-color); }
+        .comment-form textarea { resize: vertical; min-height: 120px; }
+        .submit-btn { align-self: flex-start; padding: 12px 30px; background-color: var(--primary-color); color: white; border: none; border-radius: 20px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; }
+        .submit-btn:hover { background-color: #0077ed; }
+
+        /* Yorum Listesi */
+        .comment-list { display: flex; flex-direction: column; gap: 25px; }
+        .comment-box { background-color: var(--card-bg); padding: 25px; border-radius: 16px; }
+        .comment-author { font-weight: 700; color: white; margin-bottom: 5px; font-size: 1.1rem; }
+        .comment-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; display: block; }
+        .comment-text { font-size: 1.05rem; color: #d2d2d7; }
+
+        @media (max-width: 768px) { .article-title { font-size: 2.5rem; } .article-content { font-size: 1.1rem; padding: 0 20px; } .comments-section { padding: 50px 20px 0; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="BMW Logo" class="nav-logo">
+            <span class="logo-text">BMW<span>M</span></span>
+        </a>
+        <a href="index.html#blog" class="back-link"><i class="fas fa-chevron-left"></i> Blog'a Dön</a>
+    </header>
+
+    <main>
+        <header class="article-header">
+            <span class="article-category">İnceleme • Mühendislik</span>
+            <h1 class="article-title">Mühendislik Bakış Açısıyla: M5 CS'in Kalbine İnceliyoruz</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar-alt"></i> 6 Mayıs 2026</span>
+                <span><i class="far fa-user"></i> Yazar: BMW Tutkusu Editörü</span>
+            </div>
+        </header>
+
+        <!-- Daha önce deponda bulunan m5_large8.jpg görselini kullanıyoruz -->
+        <img src="m5_large8.jpg" alt="BMW M5 CS Motor" class="article-hero-image">
+
+        <article class="article-content">
+            <p>Bir bilgisayar mühendisliği öğrencisi ve otomobil tutkunu olarak, otomobilleri sadece tasarım olarak değil, arkasında yatan muazzam teknoloji ve mühendislik harikası mimarileriyle değerlendirmeyi seviyorum. Bugün konumuz, BMW'nin bugüne kadar ürettiği en güçlü seri üretim M modeli olan <strong>M5 CS</strong>.</p>
+            
+            <p>Kaputun altında yatan 4.4 Litrelik V8 M TwinPower Turbo motor, sadece 635 beygir güç üretmekle kalmıyor; aynı zamanda termodinamik yapısıyla motor içi ısı dağılımını kusursuz bir şekilde yönetiyor. Çift turboşarjın V şeklindeki silindir sıralarının arasına yerleştirilmesi (Hot-V mimarisi), tepki süresini (lag) sıfıra indiriyor.</p>
+
+            <h3>M xDrive ve Yazılımın Gücü</h3>
+            <p>M5 CS'i bir düzlük canavarı olmaktan çıkarıp bir pist silahına dönüştüren asıl detay ise yazılımında gizli. M xDrive dört tekerlekten çekiş sistemi, saniyede binlerce hesaplama yaparak gücü anlık olarak akslar arasında dağıtıyor. Eğer tam kontrol istiyorsanız, sistem ön aksa giden gücü tamamen kesip aracı %100 arkadan itişli (RWD) bir drift makinesine dönüştürmenize de izin veriyor. Bu, donanım ve yazılım mühendisliğinin kusursuz senkronizasyonudur.</p>
+
+            <p>Sonuç olarak, M5 CS sadece karbon fiberden ve çelikten ibaret değil; milyonlarca satır kodun ve muazzam bir mekanik zekanın vücut bulmuş hali.</p>
+        </article>
+
+        <!-- YORUMLAR BÖLÜMÜ -->
+        <section class="comments-section">
+            <h3>Yorumlar (2)</h3>
+            
+            <!-- Yorum Formu -->
+            <form class="comment-form" onsubmit="event.preventDefault(); alert('Yorumunuz inceleme için gönderildi. Teşekkürler!');">
+                <input type="text" placeholder="İsminiz" required>
+                <textarea placeholder="Makale hakkındaki düşünceleriniz..." required></textarea>
+                <button type="submit" class="submit-btn">Yorumu Gönder</button>
+            </form>
+
+            <!-- Örnek Yorumlar -->
+            <div class="comment-list">
+                <div class="comment-box">
+                    <div class="comment-author">Ahmet Yılmaz</div>
+                    <span class="comment-date">6 Mayıs 2026, 14:30</span>
+                    <p class="comment-text">Özellikle Hot-V mimarisinin tepki süresine etkisini açıkladığınız kısım çok bilgilendirici olmuş. Elinize sağlık.</p>
+                </div>
+
+                <div class="comment-box">
+                    <div class="comment-author">Deniz K.</div>
+                    <span class="comment-date">6 Mayıs 2026, 16:45</span>
+                    <p class="comment-text">Yazılımın gücü gerçekten inanılmaz bir seviyeye geldi. Araçlardaki işlem gücü artık bilgisayarlarımızla yarışıyor.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
