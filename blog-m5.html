@@ -12,7 +12,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; overflow-x: hidden; }
 
-        /* SADECE NAVBAR İÇİN HEADER (BUG ÇÖZÜLDÜ) */
         .main-navbar { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-logo { height: 40px; width: auto; }
@@ -21,44 +20,20 @@
         .back-link { color: white; text-decoration: none; font-size: 1rem; transition: color 0.3s; }
         .back-link:hover { color: var(--primary-color); }
 
-        /* Blog Makale Başlığı */
         .article-header { padding: 150px 20px 50px; max-width: 800px; margin: 0 auto; text-align: left; }
         .article-category { color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; display: block; margin-bottom: 15px; }
         .article-title { font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 25px; color: white; }
         .article-meta { color: var(--text-muted); font-size: 1.1rem; border-top: 1px solid #333; padding-top: 20px; display: flex; gap: 20px; }
 
-        /* Ana Görsel */
         .article-hero-image { width: 100%; max-width: 1000px; margin: 0 auto 50px; display: block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-        /* Makale İçeriği */
         .article-content { max-width: 750px; margin: 0 auto 80px; font-size: 1.25rem; color: #d2d2d7; }
         .article-content p { margin-bottom: 25px; }
         .article-content h3 { color: white; font-size: 2rem; margin: 40px 0 20px; font-weight: 700; letter-spacing: -0.5px; }
 
-        /* Yorumlar Bölümü */
+        /* Disqus Yorum Bölümü Kapsayıcısı */
         .comments-section { max-width: 750px; margin: 0 auto 100px; padding-top: 50px; border-top: 1px solid #333; }
         .comments-section h3 { font-size: 2rem; color: white; margin-bottom: 30px; font-weight: 700; }
-        
-        /* Yorum Formu */
-        .comment-form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 50px; }
-        .comment-form input, .comment-form textarea { width: 100%; background-color: var(--card-bg); border: 1px solid #333; border-radius: 12px; padding: 15px; color: white; font-size: 1rem; transition: border-color 0.3s; }
-        .comment-form input:focus, .comment-form textarea:focus { outline: none; border-color: var(--primary-color); }
-        .comment-form textarea { resize: vertical; min-height: 120px; }
-        .submit-btn { align-self: flex-start; padding: 12px 30px; background-color: var(--primary-color); color: white; border: none; border-radius: 20px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; }
-        .submit-btn:hover { background-color: #0077ed; }
-
-        /* Yorum Listesi ve Dinamik Özellikler */
-        .comment-list { display: flex; flex-direction: column; gap: 25px; }
-        .comment-box { background-color: var(--card-bg); padding: 25px; border-radius: 16px; animation: fadeIn 0.4s ease-out; }
-        .comment-author { font-weight: 700; color: white; margin-bottom: 5px; font-size: 1.1rem; }
-        .comment-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; display: block; }
-        .comment-text { font-size: 1.05rem; color: #d2d2d7; }
-        
-        /* Sil Butonu Tasarımı */
-        .delete-btn { background-color: rgba(255, 59, 48, 0.2); color: #ff3b30; border: 1px solid rgba(255, 59, 48, 0.5); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.3s; }
-        .delete-btn:hover { background-color: #ff3b30; color: white; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) { .article-title { font-size: 2.5rem; } .article-content { font-size: 1.1rem; padding: 0 20px; } .comments-section { padding: 50px 20px 0; } }
     </style>
@@ -74,7 +49,6 @@
     </header>
 
     <main>
-        <!-- BUG ÇÖZÜMÜ: Burayı <header> yerine <div class="article-header"> yaptık -->
         <div class="article-header">
             <span class="article-category">İnceleme • Mühendislik</span>
             <h1 class="article-title">Mühendislik Bakış Açısıyla: M5 CS'in Kalbine İnceliyoruz</h1>
@@ -97,82 +71,29 @@
             <p>Sonuç olarak, M5 CS sadece karbon fiberden ve çelikten ibaret değil; milyonlarca satır kodun ve muazzam bir mekanik zekanın vücut bulmuş hali.</p>
         </article>
 
-        <!-- YORUMLAR BÖLÜMÜ -->
+        <!-- DISQUS YORUM SİSTEMİ BAŞLANGICI -->
         <section class="comments-section">
             <h3>Yorumlar</h3>
-            
-            <!-- Etkileşimli Yorum Formu -->
-            <form class="comment-form" id="commentForm">
-                <input type="text" id="commentAuthor" placeholder="İsminiz" required>
-                <textarea id="commentText" placeholder="Makale hakkındaki düşünceleriniz..." required></textarea>
-                <button type="submit" class="submit-btn">Yorumu Gönder</button>
-            </form>
-
-            <!-- Yorumların Listelendiği Alan -->
-            <div class="comment-list" id="commentList">
-                <!-- Statik Örnek Yorumlar -->
-                <div class="comment-box">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <div class="comment-author">Ahmet Yılmaz</div>
-                            <span class="comment-date">6 Mayıs 2026, 14:30</span>
-                        </div>
-                    </div>
-                    <p class="comment-text">Özellikle Hot-V mimarisinin tepki süresine etkisini açıkladığınız kısım çok bilgilendirici olmuş. Elinize sağlık.</p>
-                </div>
-
-                <div class="comment-box">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <div class="comment-author">Deniz K.</div>
-                            <span class="comment-date">6 Mayıs 2026, 16:45</span>
-                        </div>
-                    </div>
-                    <p class="comment-text">Yazılımın gücü gerçekten inanılmaz bir seviyeye geldi. Araçlardaki işlem gücü artık bilgisayarlarımızla yarışıyor.</p>
-                </div>
-            </div>
+            <div id="disqus_thread"></div>
+            <script>
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    
+                    /* 
+                       DİKKAT: 'bmw-tutkusu-demo' yazan yeri kendi alacağın isimle değiştireceksin. 
+                       Şu an demo hesabı olduğu için geçici olarak çalışacaktır.
+                    */
+                    s.src = 'https://bmw-tutkusu-demo.disqus.com/embed.js';
+                    
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Yorumları görüntüleyebilmek için lütfen tarayıcınızda JavaScript'i etkinleştirin.</noscript>
         </section>
+        <!-- DISQUS YORUM SİSTEMİ BİTİŞİ -->
+
     </main>
 
-    <!-- Yorum Ekleme ve Silme (Javascript) -->
-    <script>
-        document.getElementById('commentForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Sayfanın yenilenmesini engeller
-
-            // Formdaki değerleri al
-            const author = document.getElementById('commentAuthor').value;
-            const text = document.getElementById('commentText').value;
-            
-            // Mevcut tarih ve saati al
-            const now = new Date();
-            const dateOptions = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute:'2-digit' };
-            const dateString = now.toLocaleDateString('tr-TR', dateOptions);
-
-            // Yeni yorum için HTML oluştur
-            const commentBox = document.createElement('div');
-            commentBox.className = 'comment-box';
-            commentBox.innerHTML = `
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <div>
-                        <div class="comment-author">${author}</div>
-                        <span class="comment-date">${dateString}</span>
-                    </div>
-                    <!-- SİL BUTONU -->
-                    <button class="delete-btn" onclick="this.parentElement.parentElement.remove()">
-                        <i class="fas fa-trash"></i> Sil
-                    </button>
-                </div>
-                <p class="comment-text">${text}</p>
-            `;
-
-            // Yorumu listenin en üstüne ekle
-            const commentList = document.getElementById('commentList');
-            commentList.insertBefore(commentBox, commentList.firstChild);
-
-            // Formu temizle
-            document.getElementById('commentAuthor').value = '';
-            document.getElementById('commentText').value = '';
-        });
-    </script>
 </body>
 </html>
