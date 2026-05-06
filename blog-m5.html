@@ -72,25 +72,26 @@
         </article>
 
         <!-- DISQUS YORUM SİSTEMİ BAŞLANGICI -->
-        <section class="comments-section">
-            <h3>Yorumlar</h3>
-            <div id="disqus_thread"></div>
-            <script>
-                (function() {
-                    var d = document, s = d.createElement('script');
-                    
-                    /* 
-                       DİKKAT: 'bmw-tutkusu-demo' yazan yeri kendi alacağın isimle değiştireceksin. 
-                       Şu an demo hesabı olduğu için geçici olarak çalışacaktır.
-                    */
-                    s.src = 'https://bmw-tutkusu-demo.disqus.com/embed.js';
-                    
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Yorumları görüntüleyebilmek için lütfen tarayıcınızda JavaScript'i etkinleştirin.</noscript>
-        </section>
+       <!-- GISCUS YORUM SİSTEMİ -->
+<section class="comments-section">
+    <h3>Yorumlar</h3>
+    <script src="https://giscus.app/client.js"
+        data-repo="canergulec/bmw-site"
+        data-repo-id="R_kgDOSUPAgg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOSUPAgg4Cig6-"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="tr"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>Yorumları görüntüleyebilmek için lütfen tarayıcınızda JavaScript'i etkinleştirin.</noscript>
+</section>
         <!-- DISQUS YORUM SİSTEMİ BİTİŞİ -->
 
     </main>
