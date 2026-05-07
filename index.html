@@ -30,12 +30,11 @@
         .btn { padding: 14px 32px; background-color: var(--text-color); color: var(--bg-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; border-radius: 30px; transition: all 0.3s ease; opacity: 0; animation: fadeUp 1s forwards 1.1s; }
         .btn:hover { background-color: #ffffff; transform: scale(1.05); }
 
-        /* YENİ EKLENEN: TÜM SAYFAYI KAPLAYAN GEÇİŞ */
+        /* TÜM SAYFAYI KAPLAYAN GEÇİŞ - SİYAH OLARAK GÜNCELLENDİ */
         .page-content {
-            background: linear-gradient(to bottom, rgba(0, 51, 153, 0.15) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 100%);
+            background-color: var(--bg-color);
         }
 
-        /* Tüm bölümlerin kendi arkaplan renklerini kaldırdım ki üstteki geçiş şeffafça görünsün */
         .models { padding: 8rem 5%; text-align: center; }
         .models h2 { font-size: 3rem; margin-bottom: 4rem; font-weight: 700; letter-spacing: -1px; color: var(--text-color); }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
@@ -113,7 +112,6 @@
         <a href="#models" class="btn">Modelleri Keşfet</a>
     </section>
 
-    <!-- BURASI YENİ: Hero hariç tüm sayfayı saran kapsayıcı div -->
     <div class="page-content">
         
         <section class="models" id="models">
@@ -184,9 +182,7 @@
             <p class="copyright">&copy; 2026 BMW Tutkusu Projesi. Tüm hakları saklıdır.</p>
         </footer>
         
-    </div> <!-- Kapsayıcı div bitişi -->
-
-    <script>
+    </div> <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
