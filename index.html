@@ -53,8 +53,25 @@
         .blog-header h2 { font-size: 3rem; font-weight: 700; letter-spacing: -1px; color: var(--text-color); }
         
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .blog-card { background-color: var(--card-bg); border-radius: 24px; padding: 35px 30px; transition: transform 0.4s ease; display: flex; flex-direction: column; text-align: left; }
-        .blog-card:hover { transform: translateY(-10px); }
+        
+        /* GÜNCELLENEN KISIM: Blog kartlarına saydam sınır eklendi */
+        .blog-card { 
+            background-color: var(--card-bg); 
+            border-radius: 24px; 
+            padding: 35px 30px; 
+            transition: all 0.4s ease; 
+            display: flex; 
+            flex-direction: column; 
+            text-align: left;
+            border: 2px solid transparent; 
+        }
+        
+        /* GÜNCELLENEN KISIM: Hover olduğunda sınır rengi M mavisi oluyor */
+        .blog-card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15); /* Hafif bir parlama */
+        }
         
         .blog-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.9rem; font-weight: 500; }
         .blog-category { color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; font-weight: 700; }
@@ -182,7 +199,9 @@
             <p class="copyright">&copy; 2026 BMW Tutkusu Projesi. Tüm hakları saklıdır.</p>
         </footer>
         
-    </div> <script>
+    </div> 
+    
+    <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
