@@ -24,9 +24,11 @@
         nav ul li a { color: var(--text-color); text-decoration: none; font-size: 0.95rem; font-weight: 400; transition: color 0.3s ease; }
         nav ul li a:hover { color: var(--primary-color); }
 
-        /* YUMUŞAK GEÇİŞ BURADA SAĞLANDI */
+        /* MOBİL MENÜ İKONU İÇİN EKLENDİ */
+        .menu-toggle { display: none; font-size: 1.8rem; color: var(--text-color); cursor: pointer; transition: color 0.3s ease; }
+        .menu-toggle:hover { color: var(--primary-color); }
+
         .hero { height: 100vh; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 1) 100%), url('arkaplan.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        
         .hero h1 { font-size: 5.5rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; background: linear-gradient(to right, #ffffff, #aaaaaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0; transform: translateY(30px); animation: fadeUp 1s forwards 0.5s; }
         .hero p { font-size: 1.5rem; color: #d2d2d7; margin-bottom: 2rem; max-width: 600px; font-weight: 400; opacity: 0; transform: translateY(30px); animation: fadeUp 1s forwards 0.8s; }
         .btn { padding: 14px 32px; background-color: var(--text-color); color: var(--bg-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; border-radius: 30px; transition: all 0.3s ease; opacity: 0; animation: fadeUp 1s forwards 1.1s; }
@@ -101,7 +103,45 @@
         .copyright { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.9rem; color: #666; }
 
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } nav ul { display: none; } }
+        
+        /* MOBİL GÖRÜNÜM İÇİN GÜNCELLENEN KISIM */
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 3.5rem; } 
+            
+            .menu-toggle { display: block; } /* Mobilde ikonu göster */
+            
+            nav ul { 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: rgba(28, 28, 30, 0.98); 
+                flex-direction: column; 
+                gap: 0;
+                padding: 0;
+                /* Animasyonla açılıp kapanması için */
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            } 
+            
+            /* Menü açıldığında çalışacak sınıf */
+            nav ul.active {
+                max-height: 400px;
+            }
+            
+            nav ul li {
+                text-align: center;
+                padding: 15px 0;
+                border-top: 1px solid rgba(255,255,255,0.05);
+            }
+            
+            nav ul li a {
+                font-size: 1.1rem;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -111,8 +151,13 @@
             <img src="logo.png" alt="BMW Logo" class="nav-logo">
             <span class="logo-text">BMW<span>M</span></span>
         </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        
         <nav>
-            <ul>
+            <ul id="nav-list">
                 <li><a href="#home">Ana Sayfa</a></li>
                 <li><a href="#models">Modeller</a></li>
                 <li><a href="#blog">Blog</a></li>
@@ -212,12 +257,15 @@
     </div> 
     
     <script>
+        // Sayfa içi kaydırma (Smooth Scroll)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        // Ekrana girince beliren (Reveal) animasyonları
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -227,6 +275,33 @@
             }
         }
         window.addEventListener("scroll", reveal); window.onload = reveal; 
+
+        // MOBİL MENÜ AÇ/KAPA (TOGGLE) İŞLEMİ EKLENDİ
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const menuIcon = mobileMenu.querySelector('i');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            
+            // İkonu Hamburger'den Çarpıya dönüştürme
+            if(navList.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Menüden bir linke tıklayınca mobil menüyü otomatik kapatma
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
     </script>
 </body>
 </html>
