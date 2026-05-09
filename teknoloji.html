@@ -60,7 +60,6 @@
         }
         .back-btn:hover { color: var(--primary-color); }
 
-        /* YUMUŞAK GEÇİŞ BURADA SAĞLANDI */
         .article-hero {
             height: 90vh;
             position: relative;
@@ -70,7 +69,6 @@
             align-items: center;
             text-align: center;
             padding: 0 10%;
-            /* fixed kaldırıldı ve alt kısım tamamen siyaha eşitlendi */
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,1) 100%), url('i8-c1.jpg') center/cover;
         }
 
@@ -157,6 +155,20 @@
             .section-title { font-size: 1.8rem; }
             .quote-box { padding: 20px; font-size: 1.1rem; }
         }
+
+        /* APPLE TARZI YORUM KISMI TASARIMI */
+        .apple-comment-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .apple-comment-input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px; padding: 16px; color: white; font-family: inherit; font-size: 1.1rem; resize: vertical; min-height: 100px; backdrop-filter: blur(10px); transition: all 0.3s ease; margin-bottom: 15px; outline: none; }
+        .apple-comment-input:focus { border-color: var(--primary-color); background: rgba(255, 255, 255, 0.08); box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.2); }
+        .apple-btn { background: var(--primary-color); color: white; border: none; padding: 12px 24px; border-radius: 20px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; float: right; }
+        .apple-btn:hover { background: #005bb5; transform: scale(0.97); }
+        .apple-comment-list { margin-top: 70px; clear: both; display: flex; flex-direction: column; gap: 20px; }
+        .apple-comment { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 20px; backdrop-filter: blur(15px); animation: fadeIn 0.5s ease; }
+        .apple-comment-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .apple-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #2c2c2e, #1c1c1e); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; }
+        .apple-author { font-weight: 600; color: white; font-size: 1.05rem; }
+        .apple-time { font-size: 0.85rem; color: var(--text-muted); }
+        .apple-text { color: #d2d2d7; line-height: 1.6; font-size: 1.05rem; }
     </style>
 </head>
 <body>
@@ -262,10 +274,13 @@
                 BMW i8, aerodinamik tasarımın performans, verimlilik ve saf sanat ile nasıl harmanlanabileceğini kanıtlayan bir laboratuvardır. Otomotiv tarihine geçen bu akışkan tasarım, bugün BMW'nin en yeni elektrikli modellerinin bile ilham kaynağı olmaya devam ediyor. i8 sadece yolu tutmaz; o, rüzgarı kendi lehine kullanarak havada süzülür.
             </p>
 
-            <div id="giscus-container" style="margin-top: 80px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h3 style="margin-bottom: 25px;">Aerodinamik Hakkında Ne Düşünüyorsunuz?</h3>
-                <p style="color: var(--text-muted); font-style: italic; font-size: 0.9rem;">Düşüncelerinizi GitHub üzerinden giriş yaparak aşağıya bırakabilirsiniz.</p>
+            <div class="apple-comment-section">
+                <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Düşüncelerinizi Paylaşın</h3>
+                <textarea id="commentInput" class="apple-comment-input" placeholder="Aerodinamik hakkında ne düşünüyorsunuz?"></textarea>
+                <button id="submitComment" class="apple-btn">Gönder</button>
+                <div id="commentList" class="apple-comment-list"></div>
             </div>
+            
         </article>
     </div>
 
@@ -294,6 +309,28 @@
             progressBars.forEach(bar => {
                 observer.observe(bar);
             });
+        });
+
+        // YORUM EKLEME FONKSİYONU
+        document.getElementById('submitComment').addEventListener('click', function() {
+            const input = document.getElementById('commentInput');
+            const text = input.value.trim();
+            if (text === '') return;
+            const commentList = document.getElementById('commentList');
+            const newComment = document.createElement('div');
+            newComment.className = 'apple-comment';
+            newComment.innerHTML = `
+                <div class="apple-comment-header">
+                    <div class="apple-avatar"><i class="fas fa-user"></i></div>
+                    <div>
+                        <div class="apple-author">Anonim Okur</div>
+                        <div class="apple-time">Şimdi</div>
+                    </div>
+                </div>
+                <div class="apple-text">${text.replace(/\n/g, '<br>')}</div>
+            `;
+            commentList.prepend(newComment);
+            input.value = '';
         });
     </script>
 </body>
