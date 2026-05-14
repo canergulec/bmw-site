@@ -135,7 +135,24 @@
         }
 
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 60px 0; }
-        .feature-item { background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 35px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* GÜNCELLENEN KISIM: Teknoloji sayfasındaki yukarı kayma animasyonu buraya eklendi */
+        .feature-item { 
+            background: rgba(255, 255, 255, 0.03); 
+            border-radius: 25px; 
+            padding: 35px; 
+            text-align: center; 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: 0.4s; /* Yumuşak geçiş süresi */
+        }
+        
+        /* Hem mavi çerçeve hem de yukarı doğru transform efekti */
+        .feature-item:hover { 
+            transform: translateY(-10px); 
+            background: rgba(0, 102, 204, 0.05); 
+            border-color: var(--primary-color); 
+        }
+
         .feature-item i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
